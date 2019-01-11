@@ -1,0 +1,13 @@
+<aura:component access="global" implements="lightning:availableForFlowScreens" >
+
+    <div style="animation: jackInTheBox 1s ease-in;" >
+        Animation Test
+    </div>
+    <div class='icon-container' >
+        <lightning:icon iconName="action:flow" size="xx-small"  />
+    </div>
+    <div class='icon-container' >
+        <lightning:icon iconName="utility:connected_apps" alternativeText="" class="yellowFill" style="animation: strikes 1s ease-in;" />
+    </div>
+
+</aura:component>

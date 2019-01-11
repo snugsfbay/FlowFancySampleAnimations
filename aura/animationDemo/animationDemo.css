@@ -1,0 +1,52 @@
+.THIS {
+}
+.THIS .yellowFill svg{
+    fill: #fff03f;
+}
+@keyframes strikes {
+  from {
+    transform: scale3d(1, 1, 10);
+  }
+
+  30% {
+    transform: scale3d(1.25, 0.75, 10);
+  }
+
+  40% {
+    transform: scale3d(0.75, 3.25, 10);
+  }
+
+  50% {
+    transform: scale3d(1.15, 0.85, 10);
+  }
+
+  65% {
+    transform: scale3d(0.95, 3.05, 10);
+  }
+
+  75% {
+    transform: scale3d(1.05, 0.95, 10);
+  }
+
+  to {
+    transform: scale3d(1, 1, 1);
+  }
+}
+@keyframes jackInTheBox {
+  from {
+    transform: scale(0.1) rotate(30deg);
+    transform-origin: center bottom;
+  }
+
+  50% {
+    transform: rotate(-10deg);
+  }
+
+  70% {;
+    transform: rotate(3deg);
+  }
+
+  to {
+    transform: scale(1);
+  }
+}

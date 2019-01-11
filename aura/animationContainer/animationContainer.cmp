@@ -1,0 +1,307 @@
+<aura:component implements="flexipage:availableForAllPageTypes,lightning:availableForFlowScreens" 
+                access="global">
+    
+	<aura:attribute name="thisSelection" type="String" default="slideInUp" />
+    <aura:attribute name="lastSelection" type="String" default="" />
+    
+    <aura:attribute name="AttentionSeekers" type="List" default="[
+                                                                  {'value': 'bounce', 'label': 'bounce'},
+                                                                  {'value': 'flash', 'label': 'flash'},
+                                                                  {'value': 'pulse', 'label': 'pulse'},
+                                                                  {'value': 'rubberBand', 'label': 'rubberBand'},
+                                                                  {'value': 'shake', 'label': 'shake'},
+                                                                  {'value': 'swing', 'label': 'swing'},
+                                                                  {'value': 'tada', 'label': 'tada'},
+                                                                  {'value': 'wobble', 'label': 'wobble'},
+                                                                  {'value': 'jello', 'label': 'jello'},
+                                                                  ]" />
+	<aura:attribute name="AttentionSeekersValue" type="String" default="" />
+    
+    <aura:attribute name="BouncingEntrances" type="List" default="[
+                                                                   {'value': 'bounceIn', 'label': 'bounceIn'},
+                                                                   {'value': 'bounceInDown', 'label': 'bounceInDown'},
+                                                                   {'value': 'bounceInLeft', 'label': 'bounceInLeft'},
+                                                                   {'value': 'bounceInRight', 'label': 'bounceInRight'},
+                                                                   {'value': 'bounceInUp', 'label': 'bounceInUp'},
+                                                                   ]" />
+	<aura:attribute name="BouncingEntrancesValue" type="String" default="" />
+    
+    <aura:attribute name="BouncingExits" type="List" default="[
+                                                               {'value': 'bounceOut', 'label': 'bounceOut'},
+                                                               {'value': 'bounceOutDown', 'label': 'bounceOutDown'},
+                                                               {'value': 'bounceOutLeft', 'label': 'bounceOutLeft'},
+                                                               {'value': 'bounceOutRight', 'label': 'bounceOutRight'},
+                                                               {'value': 'bounceOutUp', 'label': 'bounceOutUp'},
+                                                               ]" />
+	<aura:attribute name="BouncingExitsValue" type="String" default="" />
+    
+    <aura:attribute name="FadingEntrances" type="List" default="[
+                                                                 {'value': 'fadeIn', 'label': 'fadeIn'},
+                                                                 {'value': 'fadeInDown', 'label': 'fadeInDown'},
+                                                                 {'value': 'fadeInDownBig', 'label': 'fadeInDownBig'},
+                                                                 {'value': 'fadeInLeft', 'label': 'fadeInLeft'},
+                                                                 {'value': 'fadeInLeftBig', 'label': 'fadeInLeftBig'},
+                                                                 {'value': 'fadeInRight', 'label': 'fadeInRight'},
+                                                                 {'value': 'fadeInRightBig', 'label': 'fadeInRightBig'},
+                                                                 {'value': 'fadeInUp', 'label': 'fadeInUp'},
+                                                                 {'value': 'fadeInUpBig', 'label': 'fadeInUpBig'},
+                                                                 ]" />
+	<aura:attribute name="FadingEntrancesValue" type="String" default="" />
+    
+    <aura:attribute name="FadingExits" type="List" default="[
+                                                             {'value': 'fadeOut', 'label': 'fadeOut'},
+                                                             {'value': 'fadeOutDown', 'label': 'fadeOutDown'},
+                                                             {'value': 'fadeOutDownBig', 'label': 'fadeOutDownBig'},
+                                                             {'value': 'fadeOutLeft', 'label': 'fadeOutLeft'},
+                                                             {'value': 'fadeOutLeftBig', 'label': 'fadeOutLeftBig'},
+                                                             {'value': 'fadeOutRight', 'label': 'fadeOutRight'},
+                                                             {'value': 'fadeOutRightBig', 'label': 'fadeOutRightBig'},
+                                                             {'value': 'fadeOutUp', 'label': 'fadeOutUp'},
+                                                             {'value': 'fadeOutUpBig', 'label': 'fadeOutUpBig'},
+                                                             ]" />
+	<aura:attribute name="FadingExitsValue" type="String" default="" />
+    
+    <aura:attribute name="Flippers" type="List" default="[
+                                                         {'value': 'flip', 'label': 'flip'},
+                                                         {'value': 'flipInX', 'label': 'flipInX'},
+                                                         {'value': 'flipInY', 'label': 'flipInY'},
+                                                         {'value': 'flipOutX', 'label': 'flipOutX'},
+                                                         {'value': 'flipOutY', 'label': 'flipOutY'},
+                                                         ]" />
+	<aura:attribute name="FlippersValue" type="String" default="" />
+    
+    <aura:attribute name="Lightspeed" type="List" default="[
+                                                           {'value': 'lightSpeedIn', 'label': 'lightSpeedIn'},
+                                                           {'value': 'lightSpeedOut', 'label': 'lightSpeedOut'},
+                                                           ]" />
+	<aura:attribute name="LightspeedValue" type="String" default="" />
+    
+    <aura:attribute name="RotatingEntrances" type="List" default="[
+                                                                   {'value': 'rotateIn', 'label': 'rotateIn'},
+                                                                   {'value': 'rotateInDownLeft', 'label': 'rotateInDownLeft'},
+                                                                   {'value': 'rotateInDownRight', 'label': 'rotateInDownRight'},
+                                                                   {'value': 'rotateInUpLeft', 'label': 'rotateInUpLeft'},
+                                                                   {'value': 'rotateInUpRight', 'label': 'rotateInUpRight'},
+                                                                   ]" />
+	<aura:attribute name="RotatingEntrancesValue" type="String" default="" />
+    
+    <aura:attribute name="RotatingExits" type="List" default="[
+                                                               {'value': 'rotateOut', 'label': 'rotateOut'},
+                                                               {'value': 'rotateOutDownLeft', 'label': 'rotateOutDownLeft'},
+                                                               {'value': 'rotateOutDownRight', 'label': 'rotateOutDownRight'},
+                                                               {'value': 'rotateOutUpLeft', 'label': 'rotateOutUpLeft'},
+                                                               {'value': 'rotateOutUpRight', 'label': 'rotateOutUpRight'},
+                                                               ]" />
+	<aura:attribute name="RotatingExitsValue" type="String" default="" />
+    
+    <aura:attribute name="SlidingEntrances" type="List" default="[
+                                                                  {'value': 'slideInUp', 'label': 'slideInUp'},
+                                                                  {'value': 'slideInDown', 'label': 'slideInDown'},
+                                                                  {'value': 'slideInLeft', 'label': 'slideInLeft'},
+                                                                  {'value': 'slideInRight', 'label': 'slideInRight'},
+                                                                  
+                                                                  ]" />
+	<aura:attribute name="SlidingEntrancesValue" type="String" default="" />
+    
+    <aura:attribute name="SlidingExits" type="List" default="[
+                                                              {'value': 'slideOutUp', 'label': 'slideOutUp'},
+                                                              {'value': 'slideOutDown', 'label': 'slideOutDown'},
+                                                              {'value': 'slideOutLeft', 'label': 'slideOutLeft'},
+                                                              {'value': 'slideOutRight', 'label': 'slideOutRight'},
+                                                              
+                                                              ]" />
+	<aura:attribute name="SlidingExitsValue" type="String" default="" />
+    
+    <aura:attribute name="ZoomEntrances" type="List" default="[
+                                                               {'value': 'zoomIn', 'label': 'zoomIn'},
+                                                               {'value': 'zoomInDown', 'label': 'zoomInDown'},
+                                                               {'value': 'zoomInLeft', 'label': 'zoomInLeft'},
+                                                               {'value': 'zoomInRight', 'label': 'zoomInRight'},
+                                                               {'value': 'zoomInUp', 'label': 'zoomInUp'},
+                                                               ]" />
+	<aura:attribute name="ZoomEntrancesValue" type="String" default="" />
+    
+    <aura:attribute name="ZoomExits" type="List" default="[
+                                                           {'value': 'zoomOut', 'label': 'zoomOut'},
+                                                           {'value': 'zoomOutDown', 'label': 'zoomOutDown'},
+                                                           {'value': 'zoomOutLeft', 'label': 'zoomOutLeft'},
+                                                           {'value': 'zoomOutRight', 'label': 'zoomOutRight'},
+                                                           {'value': 'zoomOutUp', 'label': 'zoomOutUp'},
+                                                           ]" />
+	<aura:attribute name="ZoomExitsValue" type="String" default="" />
+    
+    <aura:attribute name="Specials" type="List" default="[
+                                                         {'value': 'hinge', 'label': 'hinge'},
+                                                         {'value': 'jackInTheBox', 'label': 'jackInTheBox'},
+                                                         {'value': 'rollIn', 'label': 'rollIn'},
+                                                         {'value': 'rollOut', 'label': 'rollOut'},
+                                                         ]" />
+	<aura:attribute name="SpecialsValue" type="String" default="" />
+    
+    <aura:attribute name="CategoryOptions" type="List" default="[
+                                                                {'label': 'Specials', 'value': 'Specials'},
+                                                                {'label': 'Zoom Exits', 'value': 'ZoomExits'},                                       
+                                                                {'label': 'Zoom Entrances', 'value': 'ZoomEntrances'}, 
+                                                                {'label': 'Sliding Exits', 'value': 'SlidingExits'}, 
+                                                                {'label': 'Sliding Entrances', 'value': 'SlidingEntrances'}, 
+                                                                {'label': 'Rotating Exits', 'value': 'RotatingExits'}, 
+                                                                {'label': 'Rotating Entrances', 'value': 'RotatingEntrances'}, 
+                                                                {'label': 'Lightspeed', 'value': 'Lightspeed'}, 
+                                                                {'label': 'Flippers', 'value': 'Flippers'}, 
+                                                                {'label': 'Fading Exits', 'value': 'FadingExits'}, 
+                                                                {'label': 'Fading Entrance', 'value': 'FadingEntrance'}, 
+                                                                {'label': 'Bouncing Exits', 'value': 'BouncingExits'}, 
+                                                                {'label': 'Bouncing Entrances', 'value': 'BouncingEntrances'}, 
+                                                                {'label': 'Attention Seekers', 'value': 'AttentionSeekers'}, 
+                                                                
+                                                                ]" />
+    <aura:attribute name="CategoryValue" type="String" default="Specials" />    
+    <aura:attribute name="SelectionValue" type="String" default="" />
+    
+    <div aura:id="changeIt" style="{! 'animation: '+ v.thisSelection +' 1s ease-in;'}" >
+        &nbsp; {! v.thisSelection} &nbsp;
+    	<lightning:button onclick="{!c.noChange}" label="Hide Animated DIV" />   
+    </div>
+    
+    <div class="slds-p-top_medium slds-p-bottom_medium slds-grid slds-grid slds-gutters" >
+        <div class="slds-col">
+        <lightning:radioGroup aura:id="catGroup" 
+                              name="what type"
+                              label="Select a category"
+                              options="{! v.CategoryOptions}"
+                              value="{! v.CategoryValue}"
+                              />
+        </div>
+        <div class="slds-col">
+        <aura:if isTrue="{! v.CategoryValue=='Specials'}" >
+            <lightning:radioGroup aura:id="SpecialsG"
+                                     name="Specials"
+                                     label="Specials"
+                                     options="{! v.Specials }"
+                                     value="{! v.SpecialsValues }"
+                                     onchange="{! c.handleChange }"
+                                     />
+        </aura:if>
+        <aura:if isTrue="{! v.CategoryValue=='ZoomExits'}" >
+            <lightning:radioGroup aura:id="ZoomExitsG"
+                                     name="ZoomExits"
+                                     label="ZoomExits"
+                                     options="{! v.ZoomExits }"
+                                     value="{! v.ZoomExitsValues }"
+                                     onchange="{! c.handleChange }"
+                                     />
+        </aura:if>    
+        <aura:if isTrue="{! v.CategoryValue=='ZoomEntrances'}" > 
+            <lightning:radioGroup aura:id="ZoomEntrancesG"
+                                     name="ZoomEntrances"
+                                     label="ZoomEntrances"
+                                     options="{! v.ZoomEntrances }"
+                                     value="{! v.ZoomEntrancesValues }"
+                                     onchange="{! c.handleChange }"
+                                     />
+        </aura:if>
+        <aura:if isTrue="{! v.CategoryValue=='SlidingExits'}" >
+            <lightning:radioGroup aura:id="SlidingExitsG"
+                                     name="SlidingExits"
+                                     label="SlidingExits"
+                                     options="{! v.SlidingExits }"
+                                     value="{! v.SlidingExitsValues }"
+                                     onchange="{! c.handleChange }"
+                                     />
+        </aura:if>
+        <aura:if isTrue="{! v.CategoryValue=='SlidingEntrances'}" >
+            <lightning:radioGroup aura:id="SlidingEntrancesG"
+                                     name="SlidingEntrances"
+                                     label="SlidingEntrances"
+                                     options="{! v.SlidingEntrances }"
+                                     value="{! v.SlidingEntrancesValues }"
+                                     onchange="{! c.handleChange }"
+                                     />
+        </aura:if>
+        <aura:if isTrue="{! v.CategoryValue=='RotatingExits'}" >
+            <lightning:radioGroup aura:id="RotatingExitsG"
+                                     name="RotatingExits"
+                                     label="RotatingExits"
+                                     options="{! v.RotatingExits }"
+                                     value="{! v.RotatingExitsValues }"
+                                     onchange="{! c.handleChange }"
+                                     />
+        </aura:if>
+        <aura:if isTrue="{! v.CategoryValue=='RotatingEntrances'}" >
+            <lightning:radioGroup aura:id="RotatingEntrancesG"
+                                     name="RotatingEntrances"
+                                     label="RotatingEntrances"
+                                     options="{! v.RotatingEntrances }"
+                                     value="{! v.RotatingEntrancesValues }"
+                                     onchange="{! c.handleChange }"
+                                     />
+        </aura:if>
+        <aura:if isTrue="{! v.CategoryValue=='Lightspeed'}" >
+            <lightning:radioGroup aura:id="LightspeedG"
+                                     name="Lightspeed"
+                                     label="Lightspeed"
+                                     options="{! v.Lightspeed }"
+                                     value="{! v.LightspeedValues }"
+                                     onchange="{! c.handleChange }"
+                                     />
+        </aura:if>
+        <aura:if isTrue="{! v.CategoryValue=='Flippers'}" >
+            <lightning:radioGroup aura:id="FlippersG"
+                                     name="Flippers"
+                                     label="Flippers"
+                                     options="{! v.Flippers }"
+                                     value="{! v.FlippersValues }"
+                                     onchange="{! c.handleChange }"
+                                     />
+        </aura:if>
+        <aura:if isTrue="{! v.CategoryValue=='FadingExits'}" >
+            <lightning:radioGroup aura:id="FadingExitsG"
+                                     name="FadingExits"
+                                     label="FadingExits"
+                                     options="{! v.FadingExits }"
+                                     value="{! v.FadingExitsValues }"
+                                     onchange="{! c.handleChange }"
+                                     />
+        </aura:if>
+        <aura:if isTrue="{! v.CategoryValue=='FadingEntrance'}" >
+            <lightning:radioGroup aura:id="FadingEntrancesG"
+                                     name="FadingEntrances"
+                                     label="FadingEntrances"
+                                     options="{! v.FadingEntrances }"
+                                     value="{! v.FadingEntrancesValues }"
+                                     onchange="{! c.handleChange }"
+                                     />
+        </aura:if>
+        <aura:if isTrue="{! v.CategoryValue=='BouncingExits'}" >
+            <lightning:radioGroup aura:id="BouncingExitsG"
+                                     name="BouncingExits"
+                                     label="BouncingExits"
+                                     options="{! v.BouncingExits }"
+                                     value="{! v.BouncingExitsValues }"
+                                     onchange="{! c.handleChange }"
+                                     />
+        </aura:if>
+        <aura:if isTrue="{! v.CategoryValue=='BouncingEntrances'}" >
+            <lightning:radioGroup aura:id="BouncingEntrancesG"
+                                     name="BouncingEntrances"
+                                     label="BouncingEntrances"
+                                     options="{! v.BouncingEntrances }"
+                                     value="{! v.BouncingEntrancesValues }"
+                                     onchange="{! c.handleChange }"
+                                     />
+        </aura:if>
+        <aura:if isTrue="{! v.CategoryValue=='AttentionSeekers'}" >
+            <lightning:radioGroup aura:id="AttentionSeekersGroup"
+                                     name="AttentionSeekers"
+                                     label="AttentionSeekers"
+                                     options="{! v.AttentionSeekers }"
+                                     value="{! v.AttentionSeekersValues }"
+                                     onchange="{! c.handleChange }"
+                                     />
+        </aura:if>
+        </div>    
+    </div>
+    
+
+    
+</aura:component>
